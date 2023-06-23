@@ -13,8 +13,12 @@ class RootController {
     fun root() = Mono.just(
             mapOf(
                     "code" to "hi",
-                    "hiVar" to (getenv("HI_VAR") ?: "UNKNOWN")
+                    "hiVar" to getEnv("HI_VAR"),
+                    "versionSha" to getEnv("VERSION_SHA")
             )
     )
 
+    private fun getEnv(name: String) : String = getenv(name) ?: "UNKNOWN"
 }
+
+
