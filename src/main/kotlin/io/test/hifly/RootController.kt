@@ -6,12 +6,13 @@ import reactor.core.publisher.Mono
 
 
 @RestController
-class HomeController {
+class RootController {
 
     @GetMapping("/")
     fun root() = Mono.just(
             mapOf(
                     "code" to "hi"
+
             )
     )
 
